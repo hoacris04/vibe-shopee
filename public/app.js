@@ -1,4 +1,7 @@
-const API_URL = 'http://localhost:3000/api';
+// Tự động detect API URL: nếu production thì dùng relative path, nếu local thì dùng localhost
+const API_URL = window.location.hostname === 'localhost'
+    ? 'http://localhost:3000/api'
+    : '/api';
 
 // Tab Management
 function showTab(tabName) {
