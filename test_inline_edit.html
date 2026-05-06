@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Inline Editing</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #667eea; color: white; }
+        .editable { cursor: text; background: #f9f9f9; }
+        .editable:hover { background: #e8f4f8; }
+        .editing { padding: 0; }
+        .editing input { width: 100%; padding: 8px; border: 2px solid #667eea; }
+    </style>
+</head>
+<body>
+    <h1>Test Inline Editing</h1>
+    <p>Double-click vào ô để chỉnh sửa</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Tên</th>
+                <th>Địa chỉ</th>
+                <th>Số lượng</th>
+            </tr>
+        </thead>
+        <tbody id="test-tbody">
+            <tr>
+                <td class="editable" data-field="name" ondblclick="makeEditable(this, 1)">Nguyễn Văn A</td>
+                <td class="editable" data-field="address" ondblclick="makeEditable(this, 1)">Hà Nội</td>
+                <td class="editable" data-field="quantity" ondblclick="makeEditable(this, 1)">5</td>
+            </tr>
+            <tr>
+                <td class="editable" data-field="name" ondblclick="makeEditable(this, 2)">Trần Thị B</td>
+                <td class="editable" data-field="address" ondblclick="makeEditable(this, 2)">TP HCM</td>
+                <td class="editable" data-field="quantity" ondblclick="makeEditable(this, 2)">3</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function makeEditable(cell, id) {
+            if (cell.classList.contains('editing')) return;
+            
+            const field = cell.dataset.field;
+            const currentValue = cell.textContent.trim();
+            
+            cell.classList.add('editing');
+            
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = currentValue;
+            input.dataset.id = id;
+            input.dataset.field = field;
+            input.dataset.originalValue = currentValue;
+            
+            cell.textContent = '';
+            cell.appendChild(input);
+            input.focus();
+            input.select();
+            
+            // Save on Enter
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    saveEdit(input, cell);
+                } else if (e.key === 'Escape') {
+                    cancelEdit(input, cell);
+                }
+            });
+            
+            // Save on blur
+            input.addEventListener('blur', () => {
+                saveEdit(input, cell);
+            });
+        }
+        
+        function saveEdit(input, cell) {
+            const newValue = input.value;
+            const id = input.dataset.id;
+            const field = input.dataset.field;
+            
+            console.log(`Saving: ID=${id}, Field=${field}, Value=${newValue}`);
+            
+            cell.classList.remove('editing');
+            cell.textContent = newValue;
+            
+            alert(`Đã lưu: ${field} = ${newValue}`);
+        }
+        
+        function cancelEdit(input, cell) {
+            const originalValue = input.dataset.originalValue;
+            cell.classList.remove('editing');
+            cell.textContent = originalValue;
+        }
+    </script>
+</body>
+</html>

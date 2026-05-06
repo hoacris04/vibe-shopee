@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Đơn Hàng Shopee</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛍️ Quản Lý Đơn Hàng Shopee</h1>
+            <nav>
+                <button class="nav-btn active" onclick="showTab('orders')">Danh Sách Đơn Hàng</button>
+                <button class="nav-btn" onclick="showTab('products')">Danh Sách Sản Phẩm</button>
+            </nav>
+        </header>
+
+        <!-- Orders Tab -->
+        <div id="orders-tab" class="tab-content active">
+            <div class="actions-bar">
+                <button class="btn btn-primary" onclick="showAddOrderModal()">➕ Thêm Đơn Hàng</button>
+                <button class="btn btn-warning" onclick="showImportModal()">📥 Import Dữ Liệu</button>
+                <button class="btn btn-success" onclick="updateAllTracking()">🔄 Cập Nhật Tất Cả Tracking</button>
+                <input type="text" id="order-search" placeholder="🔍 Tìm kiếm đơn hàng..." onkeyup="filterOrders()">
+            </div>
+            
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label>Lọc theo trạng thái:</label>
+                    <select id="status-filter" onchange="applyFilters()">
+                        <option value="">Tất cả</option>
+                        <option value="Chờ đặt">Chờ đặt</option>
+                        <option value="Đang giao hàng">Đang giao hàng</option>
+                        <option value="Giao thành Công">Giao thành Công</option>
+                        <option value="Bị hủy">Bị hủy</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Lọc thanh toán:</label>
+                    <select id="payment-filter" onchange="applyFilters()">
+                        <option value="">Tất cả</option>
+                        <option value="Đã thanh toán">Đã thanh toán</option>
+                        <option value="Chưa thanh toán">Chưa thanh toán</option>
+                        <option value="Tự đặt">Tự đặt</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Sắp xếp theo:</label>
+                    <select id="sort-by" onchange="applyFilters()">
+                        <option value="created_at_desc">Mới nhất</option>
+                        <option value="created_at_asc">Cũ nhất</option>
+                        <option value="recipient_name_asc">Tên A-Z</option>
+                        <option value="recipient_name_desc">Tên Z-A</option>
+                        <option value="order_date_desc">Ngày đặt (mới)</option>
+                        <option value="order_date_asc">Ngày đặt (cũ)</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-secondary btn-sm" onclick="resetFilters()">🔄 Đặt lại</button>
+            </div>
+
+            <div class="table-container">
+                <table id="orders-table">
+                    <thead>
+                        <tr>
+                            <th class="sortable" onclick="sortTable('recipient_name')">Tên Người Nhận <span class="sort-icon">⇅</span></th>
+                            <th class="sortable" onclick="sortTable('address')">Địa Chỉ <span class="sort-icon">⇅</span></th>
+                            <th class="sortable" onclick="sortTable('product_name')">Tên Sản Phẩm <span class="sort-icon">⇅</span></th>
+                            <th class="sortable" onclick="sortTable('product_category')">Phân Loại <span class="sort-icon">⇅</span></th>
+                            <th class="sortable" onclick="sortTable('quantity')">Số Lượng <span class="sort-icon">⇅</span></th>
+                            <th class="sortable" onclick="sortTable('order_date')">Ngày Đặt <span class="sort-icon">⇅</span></th>
+                            <th class="sortable" onclick="sortTable('status')">Trạng Thái <span class="sort-icon">⇅</span></th>
+                            <th class="sortable" onclick="sortTable('tracking_number')">Mã Vận Đơn <span class="sort-icon">⇅</span></th>
+                            <th>Thông Tin Chi Tiết</th>
+                            <th class="sortable" onclick="sortTable('payment_status')">Thanh Toán <span class="sort-icon">⇅</span></th>
+                            <th>Thao Tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-tbody">
+                        <!-- Orders will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Products Tab -->
+        <div id="products-tab" class="tab-content">
+            <div class="actions-bar">
+                <button class="btn btn-primary" onclick="showAddProductModal()">➕ Thêm Sản Phẩm</button>
+                <button class="btn btn-warning" onclick="showImportProductModal()">📥 Import Sản Phẩm</button>
+                <input type="text" id="product-search" placeholder="🔍 Tìm kiếm sản phẩm..." onkeyup="filterProducts()">
+            </div>
+
+            <div class="table-container">
+                <table id="products-table">
+                    <thead>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Phân Loại</th>
+                            <th>Số Lượng</th>
+                            <th>Link</th>
+                            <th>Áp Mã</th>
+                            <th>Thao Tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="products-tbody">
+                        <!-- Products will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Modal -->
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeOrderModal()">&times;</span>
+            <h2 id="order-modal-title">Thêm Đơn Hàng</h2>
+            <form id="order-form" onsubmit="saveOrder(event)">
+                <input type="hidden" id="order-id">
+                
+                <div class="form-group">
+                    <label>Tên Người Nhận:</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="order-recipient" required style="flex: 1;">
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="generateRecipientName()" title="Tự động tạo tên">🎲 Gen</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Địa Chỉ:</label>
+                    <div style="display: flex; gap: 10px; flex-direction: column;">
+                        <textarea id="order-address" required></textarea>
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="generateAddress()" title="Tự động tạo địa chỉ">🎲 Gen Địa Chỉ</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Tên Sản Phẩm:</label>
+                    <select id="order-product-name" onchange="updateProductDetails()">
+                        <option value="">-- Chọn sản phẩm --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Phân Loại:</label>
+                    <input type="text" id="order-product-category" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label>Số Lượng:</label>
+                    <input type="number" id="order-quantity" min="1">
+                </div>
+
+                <div class="form-group">
+                    <label>Ngày Đặt:</label>
+                    <input type="text" id="order-date" placeholder="dd/mm/yyyy">
+                </div>
+
+                <div class="form-group">
+                    <label>Trạng Thái:</label>
+                    <select id="order-status">
+                        <option value="Chờ đặt">Chờ đặt</option>
+                        <option value="Đang giao hàng">Đang giao hàng</option>
+                        <option value="Giao thành Công">Giao thành Công</option>
+                        <option value="Bị hủy">Bị hủy</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Mã Vận Đơn:</label>
+                    <input type="text" id="order-tracking">
+                </div>
+
+                <div class="form-group">
+                    <label>Thanh Toán:</label>
+                    <select id="order-payment">
+                        <option value="Chưa thanh toán">Chưa thanh toán</option>
+                        <option value="Đã thanh toán">Đã thanh toán</option>
+                        <option value="Tự đặt">Tự đặt</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">💾 Lưu</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeOrderModal()">❌ Hủy</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProductModal()">&times;</span>
+            <h2 id="product-modal-title">Thêm Sản Phẩm</h2>
+            <form id="product-form" onsubmit="saveProduct(event)">
+                <input type="hidden" id="product-id">
+                
+                <div class="form-group">
+                    <label>Tên Sản Phẩm:</label>
+                    <input type="text" id="product-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phân Loại:</label>
+                    <input type="text" id="product-category">
+                </div>
+
+                <div class="form-group">
+                    <label>Số Lượng:</label>
+                    <input type="number" id="product-quantity" min="0" value="0">
+                </div>
+
+                <div class="form-group">
+                    <label>Link:</label>
+                    <input type="url" id="product-link" placeholder="https://...">
+                </div>
+
+                <div class="form-group">
+                    <label>Áp Mã:</label>
+                    <input type="text" id="product-discount">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">💾 Lưu</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeProductModal()">❌ Hủy</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Import Modal -->
+    <div id="import-modal" class="modal">
+        <div class="modal-content import-modal-content">
+            <span class="close" onclick="closeImportModal()">&times;</span>
+            <h2>📥 Import Dữ Liệu Đơn Hàng</h2>
+            <p class="import-instruction">
+                Dán dữ liệu từ Excel/Google Sheets (tab-separated) vào ô bên dưới.<br>
+                <strong>Định dạng:</strong> Tên người nhận [TAB] Địa chỉ [TAB] Tên sản phẩm [TAB] Phân loại [TAB] Số lượng [TAB] Ngày đặt [TAB] Trạng thái [TAB] Mã vận đơn [TAB] Thông tin chi tiết [TAB] Thanh toán
+            </p>
+            <textarea id="import-data" placeholder="Dán dữ liệu vào đây...&#10;Ví dụ:&#10;bún bò tuan tu	bún bò tuan tu(tuantuctoi) 50/40, Mễ Trì Thượng	Thịt chua		2	14/04/2026	Giao thành Công	SPXVN063805010604	16:07:18 17 Apr 2026 Giao hàng thành công	Đã thanh toán"></textarea>
+            <div class="import-preview" id="import-preview">
+                <h3>Xem trước: <span id="preview-count">0</span> đơn hàng</h3>
+                <div id="preview-content"></div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-primary" onclick="processImport()">📥 Import</button>
+                <button type="button" class="btn btn-secondary" onclick="closeImportModal()">❌ Hủy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import Product Modal -->
+    <div id="import-product-modal" class="modal">
+        <div class="modal-content import-modal-content">
+            <span class="close" onclick="closeImportProductModal()">&times;</span>
+            <h2>📥 Import Danh Sách Sản Phẩm</h2>
+            <p class="import-instruction">
+                Dán dữ liệu từ Excel/Google Sheets (tab-separated) vào ô bên dưới.<br>
+                <strong>Định dạng:</strong> Tên [TAB] Phân loại [TAB] Số lượng [TAB] Link [TAB] Áp mã
+            </p>
+            <textarea id="import-product-data" placeholder="Dán dữ liệu vào đây...&#10;Ví dụ:&#10;Thịt chua		2	https://vn.shp.ee/7yJ7kr5H	80k&#10;Vòi nước	31	2	https://vn.shp.ee/wyfhZzwh	80k"></textarea>
+            <div class="import-preview" id="import-product-preview">
+                <h3>Xem trước: <span id="product-preview-count">0</span> sản phẩm</h3>
+                <div id="product-preview-content"></div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-primary" onclick="processProductImport()">📥 Import</button>
+                <button type="button" class="btn btn-secondary" onclick="closeImportProductModal()">❌ Hủy</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Đang xử lý...</p>
+    </div>
+
+    <script src="app.js?v=999999"></script>
+</body>
+</html>

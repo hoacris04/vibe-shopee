@@ -1,0 +1,46 @@
+Tên người nhận	Địa chỉ	Tên sản phẩm	Phân loại	Số lượng	Ngày đặt	Trạng thái	Mã vận đơn	Thông tin chi tiết đơn hàng	Thanh toán
+bún bò tuan tu	bún bò tuan tu(tuantuctoi) 50/40, Mễ Trì Thượng, Phường Mễ Trì, Quận Nam Từ Liêm, Hà Nội	Thịt chua		2	14/04/2026	Giao thành Công	SPXVN063805010604	16:07:18 17 Apr 2026 Giao hàng thành công	Đã thanh toán
+bún bò tuan tu	bánh kẹo long an(xtuannn), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội	Thịt chua		2	15/04/2026	Giao thành Công	SPXVN066177844674	11:40:50 18 Apr 2026 Giao hàng thành công	Đã thanh toán
+phở bò xíu	phở bò xíu(tuantrum), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội	Thit chua ống nứa		1		Giao thành Công	SPXVN069836497634	11:54:03 23 Apr 2026 Giao hàng thành công	Đã thanh toán
+nem nướng sapa	nem nướng sapa(tuanbeo), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội	Vòi nước 	31	2	21/04/2026	Giao thành Công	SPXVN062736593754	11:58:37 23 Apr 2026 Giao hàng thành công	Đã thanh toán
+mì quảng tròn	mì quảng tròn(tuansat_thu), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội	Thit chua ống nứa		1	22/04/2026	Giao thành Công	SPXVN062039718324	11:26:30 25 Apr 2026 Giao hàng thành công	Đã thanh toán
+chè bưởi thơm	chè bưởi thơm(tuantutien), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội	Thit chua ống nứa		1	23/04/2026	Bị hủy	SPXVN062493536794	15:42:35 28 Apr 2026 Đơn hàng sẽ được hoàn trả vì giao hàng không thành công	Đã thanh toán
+xôi xéo vàng	xôi xéo vàng(tuan_hao_han), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội	Thịt chua		2	24/04/2026	Giao thành Công	SPXVN063535085204	11:24:44 28 Apr 2026 Giao hàng thành công	Đã thanh toán
+bánh mì giòn	bánh mì giòn(tuan_cool), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội	Tất đá bóng	Đen, 3 đôi	1	25/04/2026	Bị hủy			Tự đặt
+bánh đa cua	bánh đa cua(tuan_hai_huoc), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội	Cứt két		1	29/04/2026	Chờ đặt			
+café muối	café muối(tuan_ca_phe), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội	Tất đá bóng	Đen, 3 đôi	1		Đang giao hàng	SPXVN065160075055	17:52:18 05 May 2026 Đơn hàng đã đến kho BN A Mega SOC	
+nước mía ngọt	nước mía ngọt(tuan_nhiet_tinh), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội	Củ sạc	củ sạc	1		Đang giao hàng	SPXVN068104500645	19:24:30 05 May 2026 Đơn hàng đã đến kho BD A Mega SOC	
+nem chua rán	nem chua rán(tuan_an_vat), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội	Cà phê 21 gói		1		Chờ đặt			
+bún đậu mắm tôm	bún đậu mắm tôm(tuan_dam_da), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+lòng se điếu	lòng se điếu(tuan_sanh_an), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+vịt quay lá móc mật	vịt quay lá móc mật(tuan_vui_ve), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+hủ tiếu nam vang	hủ tiếu nam vang(tuan_mien_tay), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+bánh tráng trộn	bánh tráng trộn(tuan_tre_trung), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+kem bơ đà lạt	kem bơ đà lạt(tuan_mat_lanh), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+bánh giò nóng	bánh giò nóng(tuan_binh_dan), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+thịt xiên nướng	thịt xiên nướng(tuan_duong_pho), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+súp gà ngô	súp gà ngô(tuan_am_ap), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+bún riêu cua	bún riêu cua(tuan_dan_da), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+miến trộn lươn	miến trộn lươn(tuan_lao_luyen), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+bánh đúc nóng	bánh đúc nóng(tuan_xua_nay), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+phở cuốn ngũ xã	phở cuốn ngũ xã(tuan_thanh_lich), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+bún chả cá	bún chả cá(tuan_bien_ca), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+chả rươi nóng	chả rươi nóng(tuan_dac_san), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+bánh căn phan thiết	bánh căn phan thiết(tuan_du_lich), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+mì cay cấp độ	mì cay cấp độ(tuan_thach_thuc), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+lẩu thái chua cay	lẩu thái chua cay(tuan_soi_noi), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+pizza xúc xích	pizza xúc xích(tuan_hien_dai), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+gà rán giòn	gà rán giòn(tuan_fastfood), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+mì tôm chanh	mì tôm chanh(tuan_sinh_vien), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+bánh su kem	bánh su kem(tuan_ngot_ngao), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+sữa chua trân châu	sữa chua trân châu(tuan_ha_long), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+bánh bèo chén	bánh bèo chén(tuan_hue_thuong), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+bún mắm nêm	bún mắm nêm(tuan_da_nang), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+cao lầu hội an	cao lầu hội an(tuan_co_kinh), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+bánh xèo miền tây	bánh xèo miền tây(tuan_hao_phong), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+cơm tấm sườn bì	cơm tấm sườn bì(tuan_sai_gon), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+bánh canh cá lóc	bánh canh cá lóc(tuan_kien_giang), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+bún bò huế	bún bò huế(tuan_dam_da_hue), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+cháo lòng thơm	cháo lòng thơm(tuan_dan_choi), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+phở gà lá chanh	phở gà lá chanh(tuan_tinh_te), Ngõ 116 miếu đầm , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
+bún mọc thanh vũ	bún mọc thanh vũ(tuan_nhe_nhang), 50/40 Mễ Trì Thượng , Mễ Trì,  Phường Từ Liêm, Hà Nội					Chờ đặt			
